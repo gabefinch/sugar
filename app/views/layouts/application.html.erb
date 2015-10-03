@@ -2,13 +2,27 @@
 <html>
 <head>
   <title>Sweety</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Sweety
+          </h3>
+        </div>
+        <div class="panel-body">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
