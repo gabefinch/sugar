@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
       flash[:notice] = "Entry added!"
       redirect_to root
     else
-      flash[:error] = "There was a problem with the entry. Please try again."
+      flash[:error] = @entry.errors.messages
       render :new
     end
   end
