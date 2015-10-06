@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new
   end
   def create
-    @entry = Entry.new(params["entry"])
+    @entry = Entry.new(entry_params)
     if @entry.save
       flash[:notice] = "Entry added!"
       redirect_to root
@@ -18,4 +18,8 @@ class EntriesController < ApplicationController
   def reports
 
   end
+  private
+    def entry_params
+      params.require(:entry).permit(:value)
+    end
 end
