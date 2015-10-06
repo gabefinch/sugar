@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new
   end
   def create
-    @entry = entry.new(entry_params)
+    @entry = Entry.new(entry_params)
     if @entry.save
       flash[:notice] = "Entry added!"
       redirect_to root
