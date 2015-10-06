@@ -12,10 +12,16 @@ class EntriesController < ApplicationController
       render :index
     else
       flash[:error] = ""
-      @entry.errors.messages[:value].each do |message|
+      messages = @entry.errors.messages[:value]
+      messages.each do |message|
         flash[:error] += "Value " + message + ". "
       end
-      render :new
+      if messages.include? "exceeds the number of allowed entries (4/day)"
+        render :index
+      else
+        render :new
+      end
+
     end
   end
   def reports
