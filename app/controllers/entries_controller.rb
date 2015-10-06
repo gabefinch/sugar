@@ -11,7 +11,10 @@ class EntriesController < ApplicationController
       flash[:notice] = "Entry added!"
       render :index
     else
-      flash[:error] = @entry.errors.messages
+      flash[:error] = ""
+      @entry.errors.messages[:value].each do |message|
+        flash[:error] += "Value " + message + ". "
+      end
       render :new
     end
   end
