@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     if @entry.save
       flash[:notice] = "Entry added!"
-      redirect_to root
+      render :index
     else
       flash[:error] = @entry.errors.messages
       render :new
