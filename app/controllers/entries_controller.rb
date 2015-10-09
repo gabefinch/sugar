@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
 
   def index
+    @entries_today = Entry.entries_today
+    binding.pry
   end
   def new
     @entry = Entry.new
@@ -17,7 +19,7 @@ class EntriesController < ApplicationController
         flash[:error] += "Value " + message + ". "
       end
       if messages.include? "exceeds the number of allowed entries (4/day)"
-        render :index
+        redirect_to index
       else
         render :new
       end

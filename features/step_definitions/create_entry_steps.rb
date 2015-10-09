@@ -17,5 +17,5 @@ Then(/^I am returned to the index page$/) do
 end
 
 Then(/^I am given an accurate readout of how many readings I have entered today$/) do
-  expect(page).to have_content('4 entries logged today.')
+  expect(page).to have_content('4 entries today.')
 end
