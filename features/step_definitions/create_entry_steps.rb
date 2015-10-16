@@ -19,3 +19,7 @@ end
 Then(/^I am given an accurate readout of how many readings I have entered today$/) do
   expect(page).to have_content('4 entries today.')
 end
+
+Then (/^I am told that I already have 4 entries$/) do
+  expect(page).to have_content('Value exceeds the number of allowed entries (4/day).')
+end

@@ -8,3 +8,9 @@ Feature: Create a new entry
     When I submit an entry from the Glucose Reading form page
     Then I am returned to the index page
     And I am given an accurate readout of how many readings I have entered today
+
+    Scenario: Create an glucose entry given 4 today
+      Given 4 entries so far today
+      When I submit an entry from the Glucose Reading form page
+      Then I am returned to the index page
+      And I am told that I already have 4 entries
