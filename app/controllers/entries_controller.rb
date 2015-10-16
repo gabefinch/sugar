@@ -2,7 +2,6 @@ class EntriesController < ApplicationController
 
   def index
     @entries_today = Entry.entries_today
-    binding.pry
   end
   def new
     @entry = Entry.new
