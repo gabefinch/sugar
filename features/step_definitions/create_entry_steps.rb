@@ -5,13 +5,6 @@ Given /(.*) entries so far today/ do |entries|
   end
 end
 
-When(/^I submit an entry from the Glucose Reading form page$/) do
-  visit "/"
-  click_link 'Glucose Reading'
-  fill_in 'entry_value', :with => '90'
-  click_button 'Create Entry'
-end
-
 Then(/^I am returned to the index page$/) do
   expect(page).to have_xpath('/')
 end
