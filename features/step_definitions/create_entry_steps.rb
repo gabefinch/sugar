@@ -20,6 +20,23 @@ Then(/^I am given an accurate readout of how many readings I have entered today$
   expect(page).to have_content('4 entries today.')
 end
 
-Then (/^I am told that I already have 4 entries$/) do
+Then(/^I am told that I already have 4 entries$/) do
   expect(page).to have_content('Value exceeds the number of allowed entries (4/day).')
+end
+
+When(/^I submit an entry with blank value$/) do
+  visit "/"
+  click_link 'Glucose Reading'
+  click_button 'Create Entry'
+end
+
+When(/^I am told that my entry "(.*?)"$/) do |message|
+  expect(page).to have_content(message)
+end
+
+When(/^I submit an entry with value of "(.*?)"$/) do |value|
+  visit "/"
+  click_link 'Glucose Reading'
+  fill_in 'entry_value', :with => value
+  click_button 'Create Entry'
 end
