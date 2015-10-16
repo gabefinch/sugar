@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     if @entry.save
       flash[:notice] = "Entry added!"
-      render :index
+      redirect_to :action => 'index'
     else
       flash[:error] = ""
       messages = @entry.errors.messages[:value]
@@ -18,7 +18,7 @@ class EntriesController < ApplicationController
         flash[:error] += "Value " + message + ". "
       end
       if messages.include? "exceeds the number of allowed entries (4/day)"
-        redirect_to index
+        redirect_to :action => 'index'
       else
         render :new
       end

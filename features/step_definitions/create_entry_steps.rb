@@ -1,7 +1,7 @@
 Given /(.*) entries so far today/ do |entries|
   Entry.all.each {|e| e.delete}
   entries.to_i.times do
-    Entry.new(:value => "100")
+    Entry.create(:value => "100")
   end
 end
 

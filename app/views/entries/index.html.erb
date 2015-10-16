@@ -3,5 +3,8 @@
   <%= link_to "Glucose Reading", new_entry_path, class: "btn btn-default btn-lg btn-block" %>
   <%= link_to "Reading Reports", new_entry_path, class: "btn btn-default btn-lg btn-block" %>
 </div>
-
-<%= @entries_today %> entries today.
+<% if @entries_today == 1 %>
+  <%= @entries_today %> entry today.
+<% else %>
+  <%= @entries_today %> entries today.
+<% end %>
