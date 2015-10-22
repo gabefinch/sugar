@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
     end
   end
   def reports
-
+    render :reports
   end
   private
     def entry_params
