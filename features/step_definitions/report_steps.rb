@@ -7,6 +7,13 @@ When(/^I click "(.*?)" on the "(.*?)" page$/) do |text, page|
   click_link text
 end
 
-Then(/^I am told there is insufficient data for reports$/) do
-  expect(page).to have_content("Insufficient data")
+Given(/^an entry for today of "(.*?)"$/) do |value|
+  visit "/"
+  click_link 'Glucose Reading'
+  fill_in 'entry_value', :with => value
+  click_button 'Create Entry'
+end
+
+Then(/^I am shown "(.*?)"$/) do |message|
+  expect(page).to have_content(message)
 end

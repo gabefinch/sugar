@@ -6,4 +6,11 @@ Feature: View Report
   Scenario: View report given no data
     Given no data for today
     When I click "Reading Reports" on the "index" page
-    Then I am told there is insufficient data for reports
+    Then I am shown "Insufficient data"
+
+  Scenario: View report for today given 4 entries
+        Given an entry for today of "95"
+        When I click "Reading Reports" on the "index" page
+        Then I am shown "Mean Average: 95"
+        And I am shown "Max Value: 95"
+        And I am shown "Min Value: 95"
