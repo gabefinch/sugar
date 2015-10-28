@@ -1,7 +1,12 @@
 class EntriesController < ApplicationController
 
   def index
-    @entries_today = Entry.entries_today
+    entries_today = Entry.entries_today.length
+    if entries_today == 1
+      @entrycount_message = "#{entries_today} entry today."
+    else
+      @entrycount_message = "#{entries_today} entries today."
+    end
   end
   def new
     @entry = Entry.new
@@ -26,6 +31,11 @@ class EntriesController < ApplicationController
     end
   end
   def reports
+    if Entry.entries_today == 0
+      @message = "Insufficient data"
+    else
+      @message = "Mean Average: " + Entry.mean.to_s
+    end
     render :reports
   end
   private
