@@ -12,5 +12,5 @@ Feature: View Report
         Given an entry for today of "95"
         When I click "Reading Reports" on the "index" page
         Then I am shown "Mean Average: 95"
-        And I am shown "Max Value: 95"
-        And I am shown "Min Value: 95"
+        And I am shown "Maximum Value: 95"
+        And I am shown "Minimum Value: 95"

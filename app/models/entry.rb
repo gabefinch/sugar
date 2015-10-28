@@ -26,4 +26,30 @@ class Entry < ActiveRecord::Base
     end
   end
 
+  def self.max
+    entry_matches = self.entries_today
+    if entry_matches.length == 0
+      return 0
+    else
+      max = 0
+      entry_matches.each do |entry|
+        max = entry.value if entry.value > max
+      end
+      return max
+    end
+  end
+
+  def self.min
+    entry_matches = self.entries_today
+    if entry_matches.length == 0
+      return 0
+    else
+      min = entry_matches.first.value
+      entry_matches.each do |entry|
+        min = entry.value if entry.value < min
+      end
+      return min
+    end
+  end
+
 end
